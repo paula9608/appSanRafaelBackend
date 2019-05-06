@@ -35,7 +35,8 @@ public class MateriaController {
 		return ResponseEntity.ok(materias);
 	}
 	
-	@PostMapping(value = "/materia/save")
+	@CrossOrigin(origins = "http://localhost:4200")
+	@PostMapping(value = "/materias")
 	public ResponseEntity<Materia> save(@RequestBody Materia materia) {
 		Materia materiaSave = materiaService.save(materia);
 		return ResponseEntity.ok(materiaSave);
