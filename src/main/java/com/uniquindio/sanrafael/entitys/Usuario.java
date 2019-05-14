@@ -5,11 +5,15 @@ package com.uniquindio.sanrafael.entitys;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -37,6 +41,10 @@ public class Usuario implements Serializable{
 	
 	@Column(name = "PASSWORD", length = 255)
 	private String password;
+	
+	@ManyToOne(optional = false, targetEntity = Rol.class)
+	@JoinColumn(name = "rol_id")
+	private Rol rol;
 
 	/**
 	 * @return the id
@@ -93,5 +101,21 @@ public class Usuario implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	/**
+	 * @return the rol
+	 */
+	public Rol getRol() {
+		return rol;
+	}
+
+	/**
+	 * @param rol the rol to set
+	 */
+	public void setRol(Rol rol) {
+		this.rol = rol;
+	}
+	
+	
 	
 }
