@@ -33,4 +33,10 @@ public class MateriaServiceImpl implements MateriaServiceInterface {
 		return materiaRepository.save(materia);
 	}
 
+	@Override
+	public Materia findMateria(Long id) {
+		
+		return materiaRepository.findById(id).get();
+	}
+
 }

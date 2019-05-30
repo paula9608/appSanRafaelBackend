@@ -8,4 +8,6 @@ public interface MateriaServiceInterface {
 	List<Materia> findAll();
 	
 	Materia save(Materia materia);
+
+	Materia findMateria(Long id);
 }

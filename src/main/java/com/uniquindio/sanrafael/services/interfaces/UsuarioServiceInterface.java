@@ -12,5 +12,8 @@ public interface UsuarioServiceInterface {
 	Usuario save(Usuario usuario, RolesEnum tipo);
 	
 	Optional<Usuario> findByusernameAndPassword(String username, String password);
+	List<Usuario> findByRolTipo(RolesEnum tipo );
+
+    void deleteById(Long id);
 	
 }
