@@ -7,12 +7,16 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.uniquindio.sanrafael.enums.GradoEnum;
 
 /**
  * @author user
@@ -36,14 +40,19 @@ public class Usuario implements Serializable{
 	
 	@Column(name = "Apellido", length = 255)
 	private String apellido;
+	
 	@Column(name = "Telefono", length = 255)
 	private String telefono;
+	
 	@Column(name = "Direccion", length = 255)
 	private String direccion;
+	
 	@Column(name = "USERNAME", length = 255)
 	private String username;
+	
 	@Column(name = "GRADO", length = 255)
 	private String grado;
+	
 	@Column(name = "PASSWORD", length = 255)
 	private String password;
 	

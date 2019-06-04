@@ -24,8 +24,11 @@ public class Respuesta implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name = "ESTADO", length = 1000)
-	private boolean estado;
+	@Column(name = "NOMBRE", length = 1000)
+	private String nombre;
+	
+	@Column(name = "CORRECTA")
+	private boolean correcta;
 	
 	@ManyToOne(optional = false, targetEntity = Pregunta.class)
 	@JoinColumn(name = "pregunta_id")
@@ -46,20 +49,6 @@ public class Respuesta implements Serializable {
 	}
 
 	/**
-	 * @return the estado
-	 */
-	public Boolean getEstado() {
-		return estado;
-	}
-
-	/**
-	 * @param estado the estado to set
-	 */
-	public void setEstado(Boolean estado) {
-		this.estado = estado;
-	}
-
-	/**
 	 * @return the pregunta
 	 */
 	public Pregunta getPregunta() {
@@ -71,6 +60,35 @@ public class Respuesta implements Serializable {
 	 */
 	public void setPregunta(Pregunta pregunta) {
 		this.pregunta = pregunta;
+	}
+	
+
+	/**
+	 * @return the nombre
+	 */
+	public String getNombre() {
+		return nombre;
+	}
+
+	/**
+	 * @param nombre the nombre to set
+	 */
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	/**
+	 * @return the correcta
+	 */
+	public boolean isCorrecta() {
+		return correcta;
+	}
+
+	/**
+	 * @param correcta the correcta to set
+	 */
+	public void setCorrecta(boolean correcta) {
+		this.correcta = correcta;
 	}
 
 	/**

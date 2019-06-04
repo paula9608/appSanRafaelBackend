@@ -1,11 +1,24 @@
 package com.uniquindio.sanrafael.enums;
 
 public enum GradoEnum {
-	GRADO_PREESCOLAR,
-GRADO_PRIMERO,
-GRADO_SEGUNDO,
-GRADO_TERCERO,
-GRADO_CUARTO,
-GRADO_QUINTO
+	GRADO_PREESCOLAR("preescolar"),
+	GRADO_PRIMERO("primero"),
+	GRADO_SEGUNDO("segundo"),
+	GRADO_TERCERO("tercero"),
+	GRADO_CUARTO("cuarto"),
+	GRADO_QUINTO("quinto");
+	
+	String valor;
+
+	private GradoEnum(String valor) {
+		this.valor = valor;
+	}
+
+	/**
+	 * @return the valor
+	 */
+	public String getValor() {
+		return valor;
+	}
 
 }

@@ -20,9 +20,9 @@ public class RespuestaController {
 
 	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping(value = "/respuestas")
-	public ResponseEntity<Respuesta> save(@RequestBody Respuesta respuesta) {
+	public ResponseEntity<List<Respuesta>> save(@RequestBody List<Respuesta> respuesta) {
 		System.out.println(respuesta.toString());
-		Respuesta respuestaSave = respuestaService.save(respuesta);
+		List<Respuesta> respuestaSave = respuestaService.save(respuesta);
 		return ResponseEntity.ok(respuestaSave);
 	}
 	

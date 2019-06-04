@@ -7,4 +7,6 @@ import com.uniquindio.sanrafael.entitys.Pregunta;
 public interface PreguntaServiceInterface {
 Pregunta save(Pregunta pregunta);
  List<Pregunta> findByTallerId(Long tallerId);
+void deleteById(Long id);
+
 }

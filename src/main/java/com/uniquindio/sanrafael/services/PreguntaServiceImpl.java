@@ -29,4 +29,13 @@ public class PreguntaServiceImpl implements PreguntaServiceInterface{
 		return preguntaSave;
 	}
 
+	@Override
+	public void deleteById(Long id) {
+	
+	
+	
+		preguntaRepository.deleteById(id);
+	
+	}
+
 }

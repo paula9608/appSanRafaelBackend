@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.uniquindio.sanrafael.entitys.Taller;
-
+import com.uniquindio.sanrafael.enums.GradoEnum;
 import com.uniquindio.sanrafael.repositorys.TallerRepository;
 import com.uniquindio.sanrafael.services.interfaces.TallerServiceInterface;
 
@@ -35,9 +35,15 @@ public class TallerServiceImpl implements TallerServiceInterface {
 		tallerRepository.deleteById(id);
 	}
 
-	
+	@Override
+	public Taller findById(Long id) {
+		return tallerRepository.findById(id).get();
+	}
 
-
-	
+	@Override
+	public List<Taller> findByGrado(GradoEnum grado) {
+		List<Taller> talleres = tallerRepository.findByGrado(grado);
+		return talleres;
+	}
 
 }

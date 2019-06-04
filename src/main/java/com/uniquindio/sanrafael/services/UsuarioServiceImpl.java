@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import com.uniquindio.sanrafael.entitys.Materia;
 import com.uniquindio.sanrafael.entitys.Rol;
 import com.uniquindio.sanrafael.entitys.Usuario;
+import com.uniquindio.sanrafael.enums.GradoEnum;
 import com.uniquindio.sanrafael.enums.RolesEnum;
 import com.uniquindio.sanrafael.repositorys.RolRepository;
 import com.uniquindio.sanrafael.repositorys.UsuarioRepository;
@@ -40,7 +41,7 @@ public class UsuarioServiceImpl implements UsuarioServiceInterface{
 		Rol rol = rolRepository.findByTipo(tipo);
 		usuario.setRol(rol);
 		if(usuario.getPassword()==null && usuario.getUsername()==null) {
-			String pass=usuario.getGrado()+""+usuario.getApellido();
+			String pass=GradoEnum.valueOf(usuario.getGrado()).getValor()+""+usuario.getApellido();
 			usuario.setPassword(pass);
 			usuario.setUsername(usuario.getNombre());
 			return usuarioRepository.save(usuario);

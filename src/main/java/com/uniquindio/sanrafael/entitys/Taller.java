@@ -35,7 +35,6 @@ public class Taller implements Serializable{
 	@Column(name = "grado")
 	private GradoEnum grado;
 	
-	
 	@Column(name = "DESCRIPCION", length = 1000)
 	private String descripcion;
 	
@@ -43,6 +42,9 @@ public class Taller implements Serializable{
 	@JoinColumn(name = "materia_id")
 	private Materia materia;
 
+	@Column(name = "TIEMPO_MINUTOS", nullable = false)
+	private Long tiempoMinutos;
+	
 	/**
 	 * @return the id
 	 */
@@ -120,6 +122,20 @@ public class Taller implements Serializable{
 	 */
 	public void setMateria(Materia materia) {
 		this.materia = materia;
+	}
+
+	/**
+	 * @return the tiempoMinutos
+	 */
+	public Long getTiempoMinutos() {
+		return tiempoMinutos;
+	}
+
+	/**
+	 * @param tiempoMinutos the tiempoMinutos to set
+	 */
+	public void setTiempoMinutos(Long tiempoMinutos) {
+		this.tiempoMinutos = tiempoMinutos;
 	}
 
 }

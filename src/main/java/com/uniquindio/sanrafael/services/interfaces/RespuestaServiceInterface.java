@@ -5,8 +5,9 @@ import java.util.List;
 import com.uniquindio.sanrafael.entitys.Respuesta;
 
 public interface RespuestaServiceInterface {
-Respuesta save(Respuesta respuesta);
+	
+	List<Respuesta> save(List<Respuesta> respuesta);
 
-List<Respuesta> findByPreguntaId(Long idPregunta);
+	List<Respuesta> findByPreguntaId(Long idPregunta);
 
 }

@@ -52,4 +52,5 @@ public class UsuarioController {
 		return ResponseEntity.ok(usuarios);
 	}
 	
+	
 }
