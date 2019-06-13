@@ -33,7 +33,6 @@ public class PreguntaServiceImpl implements PreguntaServiceInterface{
 	public void deleteById(Long id) {
 	
 	
-	
 		preguntaRepository.deleteById(id);
 	
 	}

@@ -29,7 +29,7 @@ public class TallerServiceImpl implements TallerServiceInterface {
 		List<Taller> talleres = tallerRepository.findByMateriaId(materiaId);
 		return talleres;
 	}
-
+	
 	@Override
 	public void deleteById(Long id) {
 		tallerRepository.deleteById(id);

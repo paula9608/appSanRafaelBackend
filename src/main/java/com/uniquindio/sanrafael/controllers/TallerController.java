@@ -1,6 +1,8 @@
 package com.uniquindio.sanrafael.controllers;
 
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.uniquindio.sanrafael.entitys.Taller;
+import com.uniquindio.sanrafael.entitys.Usuario;
 import com.uniquindio.sanrafael.enums.GradoEnum;
 import com.uniquindio.sanrafael.services.interfaces.TallerServiceInterface;
 
@@ -36,6 +39,7 @@ public class TallerController {
 		List<Taller> talleres = tallerService.findByMateriaId(idMateria);
 		return ResponseEntity.ok(talleres);
 	}
+	
 
 	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping(value = "/talleres/usuario/{grado}")

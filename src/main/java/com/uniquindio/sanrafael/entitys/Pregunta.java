@@ -4,12 +4,17 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.uniquindio.sanrafael.enums.GradoEnum;
+import com.uniquindio.sanrafael.enums.TipoEnum;
 
 @Entity
 @Table(name = "PREGUNTAS")
@@ -26,21 +31,43 @@ public class Pregunta implements Serializable {
 	@Column(name = "nombre", length = 255)
 	private String nombre;
 	
+	@Enumerated(EnumType.STRING)
+	@Column(name = "tipo")
+	private TipoEnum tipo;
+	 
+	
 	@Column(name = "premio", length = 255)
 	private Boolean premio;
 
-	@Column(name = "descripcion", length = 255)
-	private String descripcion;
+	
 	
 	@ManyToOne(optional = false, targetEntity = Taller.class)
 	@JoinColumn(name = "taller_id")
 	private Taller taller;
+	
+
+	/**
+	
 
 	/**
 	 * @return the id
 	 */
 	public Long getId() {
 		return id;
+	}
+
+	/**
+	 * @return the tipo
+	 */
+	public TipoEnum getTipo() {
+		return tipo;
+	}
+
+	/**
+	 * @param tipo the tipo to set
+	 */
+	public void setTipo(TipoEnum tipo) {
+		this.tipo = tipo;
 	}
 
 	/**
@@ -78,19 +105,6 @@ public class Pregunta implements Serializable {
 		this.premio = premio;
 	}
 
-	/**
-	 * @return the descripcion
-	 */
-	public String getDescripcion() {
-		return descripcion;
-	}
-
-	/**
-	 * @param descripcion the descripcion to set
-	 */
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
 
 	/**
 	 * @return the serialversionuid
