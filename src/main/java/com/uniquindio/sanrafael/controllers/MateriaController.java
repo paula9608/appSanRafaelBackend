@@ -28,7 +28,7 @@ public class MateriaController {
 	private MateriaServiceInterface materiaService;
 	
 	@CrossOrigin(origins = "http://localhost:4200")
-	@GetMapping(value = "/hello")
+	@GetMapping(value = "/")
 	public String hello() {
 		return "Hellow world";
 	}
