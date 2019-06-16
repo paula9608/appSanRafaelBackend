@@ -2,15 +2,18 @@ package com.uniquindio.sanrafael;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.sql.DriverManager;
 
 import javax.sql.DataSource;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
@@ -35,12 +38,18 @@ public class DatabaseConfig {
   
   @Bean
   public DataSource dataSource() {
-      HikariConfig config = new HikariConfig();
-      config.setJdbcUrl(dbUrl);
-      config.setUsername(user);
-      config.setPassword(password);
-      config.setDriverClassName(driver);
-      return new HikariDataSource(config);
+	  
+	  String dbUrl = System.getenv("JDBC_DATABASE_URL");
+      String username = System.getenv("JDBC_DATABASE_USERNAME");
+      String password = System.getenv("JDBC_DATABASE_PASSWORD");
+
+      DriverManagerDataSource dataSource = new DriverManagerDataSource();
+      dataSource.setDriverClassName(driver);
+      dataSource.setUrl(dbUrl);
+      dataSource.setUsername(username);
+      dataSource.setPassword(password);
+
+      return dataSource;
   }
   
   
