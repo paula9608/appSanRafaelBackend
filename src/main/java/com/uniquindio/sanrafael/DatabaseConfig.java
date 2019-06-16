@@ -39,7 +39,6 @@ public class DatabaseConfig {
       config.setJdbcUrl(dbUrl);
       config.setUsername(user);
       config.setPassword(password);
-      config.setDriverClassName(driver);
       return new HikariDataSource(config);
   }
   
