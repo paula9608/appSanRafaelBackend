@@ -28,6 +28,12 @@ public class MateriaController {
 	private MateriaServiceInterface materiaService;
 	
 	@CrossOrigin(origins = "http://localhost:4200")
+	@GetMapping(value = "/hello")
+	public String hello() {
+		return "Hellow world";
+	}
+	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping(value = "/materias")
 	public ResponseEntity<List<Materia>> findAll() {
 		List<Materia> materias = materiaService.findAll();
