@@ -11,7 +11,7 @@
 	<groupId>com.sanrafael</groupId>
 	<artifactId>app</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 	<name>sanrafaelapp</name>
 	<description>Pmv project san rafael</description>
 
