@@ -24,19 +24,19 @@ public class UsuarioController {
 	
 	@Autowired
 	private UsuarioServiceInterface usuarioService;
-	@CrossOrigin(origins = "http://localhost:4200")
+	@CrossOrigin(origins = "https://app-san-rafael.herokuapp.com")
 	@PostMapping(value = "/usuarios")
 	public ResponseEntity<Usuario> save(@RequestBody Usuario usuario, @RequestParam(name = "rol") RolesEnum tipo) {
 		Usuario usuarioSave = usuarioService.save(usuario, tipo);
 		return ResponseEntity.ok(usuarioSave);
 	}
-	@CrossOrigin(origins = "http://localhost:4200")
+	@CrossOrigin(origins = "https://app-san-rafael.herokuapp.com")
 	@DeleteMapping(value = "/usuarios/{id}")
 	public ResponseEntity<List<Usuario>> deleteById(@PathVariable long id,@RequestParam String tipo){
 		 usuarioService.deleteById(id);
 		 return ResponseEntity.ok(usuarioService.findByRolTipo(RolesEnum.valueOf(tipo))); 
 	}
-	@CrossOrigin(origins = "http://localhost:4200")
+	@CrossOrigin(origins = "https://app-san-rafael.herokuapp.com")
 	@PostMapping(value = "/usuarios/login")
 	public ResponseEntity<Usuario> login(@RequestParam String username,  @RequestParam String password) {
 		
@@ -44,7 +44,7 @@ public class UsuarioController {
 		return usuario.isPresent() ? ResponseEntity.ok(usuario.get()) : ResponseEntity.notFound().build();
 		
 	}
-	@CrossOrigin(origins = "http://localhost:4200")
+	@CrossOrigin(origins = "https://app-san-rafael.herokuapp.com")
 	@GetMapping(value = "/usuarios")
 	public ResponseEntity<List<Usuario>> findByRolTipo(@RequestParam String tipo) {
 		

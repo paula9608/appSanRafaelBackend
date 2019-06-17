@@ -21,21 +21,21 @@ public class PreguntaController {
 	@Autowired
 	PreguntaServiceInterface preguntaService;
 	
-	@CrossOrigin(origins = "http://localhost:4200")
+	@CrossOrigin(origins = "https://app-san-rafael.herokuapp.com")
 	@PostMapping(value = "/preguntas")
 	public ResponseEntity<Pregunta> save(@RequestBody Pregunta pregunta) {
 		Pregunta preguntaSave = preguntaService.save(pregunta);
 		return ResponseEntity.ok(preguntaSave);
 	}
 	 
-	@CrossOrigin(origins = "http://localhost:4200")
+	@CrossOrigin(origins = "https://app-san-rafael.herokuapp.com")
 	@GetMapping(value = "/preguntas/taller/{id}")
 	public ResponseEntity<List<Pregunta>> findByTaller(@PathVariable(name = "id") Long idTaller) {
 		List<Pregunta> preguntas = preguntaService.findByTallerId(idTaller);
 		return ResponseEntity.ok(preguntas);
 	}
 	
-	  @CrossOrigin(origins = "http://localhost:4200")
+	  @CrossOrigin(origins = "https://app-san-rafael.herokuapp.com")
 	@DeleteMapping(value = "/preguntas/{id}")
 	public ResponseEntity<List<Pregunta>> deleteById(@PathVariable Long id,@RequestParam Long idTaller){
 		preguntaService.deleteById(id);

@@ -18,7 +18,7 @@ public class RespuestaController {
 	@Autowired
 	RespuestaServiceInterface respuestaService;
 
-	@CrossOrigin(origins = "http://localhost:4200")
+	@CrossOrigin(origins = "https://app-san-rafael.herokuapp.com")
 	@PostMapping(value = "/respuestas")
 	public ResponseEntity<List<Respuesta>> save(@RequestBody List<Respuesta> respuesta) {
 		System.out.println(respuesta.toString());
@@ -26,7 +26,7 @@ public class RespuestaController {
 		return ResponseEntity.ok(respuestaSave);
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
+	@CrossOrigin(origins = "https://app-san-rafael.herokuapp.com")
 	@GetMapping(value = "/respuestas/pregunta/{id}")
 	public ResponseEntity<List<Respuesta>> findByPregunta(@PathVariable(name = "id") Long idPregunta) {
 		List<Respuesta> respuestas = respuestaService.findByPreguntaId(idPregunta);

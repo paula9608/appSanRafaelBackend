@@ -26,14 +26,14 @@ public class TallerController {
 	@Autowired
 	private TallerServiceInterface tallerService;
 
-	@CrossOrigin(origins = "http://localhost:4200")
+	@CrossOrigin(origins = "https://app-san-rafael.herokuapp.com")
 	@PostMapping(value = "/talleres")
 	public ResponseEntity<Taller> save(@RequestBody Taller taller) {
 		Taller tallerSave = tallerService.save(taller);
 		return ResponseEntity.ok(tallerSave);
 	}
 
-	@CrossOrigin(origins = "http://localhost:4200")
+	@CrossOrigin(origins = "https://app-san-rafael.herokuapp.com")
 	@GetMapping(value = "/talleres/materia/{id}")
 	public ResponseEntity<List<Taller>> findByMateria(@PathVariable(name = "id") Long idMateria) {
 		List<Taller> talleres = tallerService.findByMateriaId(idMateria);
@@ -41,21 +41,21 @@ public class TallerController {
 	}
 	
 
-	@CrossOrigin(origins = "http://localhost:4200")
+	@CrossOrigin(origins = "https://app-san-rafael.herokuapp.com")
 	@GetMapping(value = "/talleres/usuario/{grado}")
 	public ResponseEntity<List<Taller>> findByGrado(@PathVariable(name = "grado") GradoEnum grado) {
 		List<Taller> talleres = tallerService.findByGrado(grado);
 		return ResponseEntity.ok(talleres);
 	}
 
-	@CrossOrigin(origins = "http://localhost:4200")
+	@CrossOrigin(origins = "https://app-san-rafael.herokuapp.com")
 	@DeleteMapping(value = "/talleres/{id}")
 	public ResponseEntity<List<Taller>> deleteById(@PathVariable Long id, @RequestParam Long idMateria) {
 		tallerService.deleteById(id);
 		return ResponseEntity.ok(tallerService.findByMateriaId(idMateria));
 	}
 
-	@CrossOrigin(origins = "http://localhost:4200")
+	@CrossOrigin(origins = "https://app-san-rafael.herokuapp.com")
 	@GetMapping(value = "/talleres/{id}")
 	public ResponseEntity<Taller> findById(@PathVariable Long id) {
 		Taller taller = tallerService.findById(id);

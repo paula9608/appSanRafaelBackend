@@ -27,27 +27,27 @@ public class MateriaController {
 	@Autowired
 	private MateriaServiceInterface materiaService;
 	
-	@CrossOrigin(origins = "http://localhost:4200")
+	@CrossOrigin(origins = "https://app-san-rafael.herokuapp.com")
 	@GetMapping(value = "/")
 	public String hello() {
 		return "Hellow world";
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
+	@CrossOrigin(origins = "https://app-san-rafael.herokuapp.com")
 	@GetMapping(value = "/materias")
 	public ResponseEntity<List<Materia>> findAll() {
 		List<Materia> materias = materiaService.findAll();
 		return ResponseEntity.ok(materias);
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
+	@CrossOrigin(origins = "https://app-san-rafael.herokuapp.com")
 	@PostMapping(value = "/materias")
 	public ResponseEntity<Materia> save(@RequestBody Materia materia) {
 		Materia materiaSave = materiaService.save(materia);
 		return ResponseEntity.ok(materiaSave);
 	}
 
-	@CrossOrigin(origins = "http://localhost:4200")
+	@CrossOrigin(origins = "https://app-san-rafael.herokuapp.com")
 	@GetMapping(value = "/materias/{id}")
 	public ResponseEntity <Materia> findMateria(@PathVariable Long id) {
 		Materia materia = materiaService.findMateria(id);
